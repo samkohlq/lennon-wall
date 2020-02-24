@@ -1,13 +1,12 @@
-var express = require("express");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+import cookieParser from "cookie-parser";
 import "core-js/stable";
+import express from "express";
+import logger from "morgan";
 import "regenerator-runtime";
+import postRouter from "./routes/postRouter";
+import wallRouter from "./routes/wallRouter";
 
-import postsRouter from "./routes/postsRouter";
-import wallsRouter from "./routes/wallsRouter";
-
-var app = express();
+let app = express();
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -16,7 +15,7 @@ app.use(cookieParser());
 
 app.get("/", (req, res) => res.send("hit my root endpoint"));
 
-app.use("/posts", postsRouter);
-app.use("/walls", wallsRouter);
+app.use("/posts", postRouter);
+app.use("/walls", wallRouter);
 
 module.exports = app;
