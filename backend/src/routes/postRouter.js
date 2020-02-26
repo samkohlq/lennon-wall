@@ -7,6 +7,6 @@ const router = express.Router();
 router.post("/create", (req, res) => createPost(req, res));
 
 // retrieve all posts on specific wall
-router.get("/retrieve", (req, res) => retrievePosts(req, res));
+router.post("/retrieve", (req, res) => retrievePosts(req, res));
 
 export default router;

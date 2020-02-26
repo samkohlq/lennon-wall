@@ -10,7 +10,9 @@ export const createPost = async (req, res) => {
 };
 
 export const retrievePosts = async (req, res) => {
-  const wall = await Wall.findByPk(req.body.wallId);
+  const [wall] = await Wall.findOrCreate({
+    where: { name: req.body.wallName }
+  });
   const posts = await wall.getPosts();
   res.send(posts);
 };
