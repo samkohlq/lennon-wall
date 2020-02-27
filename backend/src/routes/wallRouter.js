@@ -8,4 +8,6 @@ router.post("/create", (req, res) => createWall(req, res));
 // retrieve wall based on parameter passed in
 router.get("/retrieve", (req, res) => retrieveWall(req, res));
 
+router.post("/retrieveWallId", (req, res) => retrieveWallId(req, res));
+
 export default router;
