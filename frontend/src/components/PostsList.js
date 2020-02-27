@@ -10,7 +10,6 @@ class PostsList extends React.Component {
 
   render() {
     const { posts } = this.props;
-    console.log(posts);
     return (
       <ul>
         {posts.map(post => (

@@ -19,7 +19,7 @@ function posts(state = initialState, action) {
           {
             id: action.postAdded.id,
             value: action.postAdded.value,
-            wallid: action.postAdded.WallId
+            WallId: action.postAdded.WallId
           }
         ]
       };
@@ -33,6 +33,17 @@ function posts(state = initialState, action) {
         ...state,
         isFetching: false,
         posts: action.posts
+      };
+    case "REQUEST_WALL_ID":
+      return {
+        ...state,
+        isFetching: true
+      };
+    case "RECEIVE_WALL_ID":
+      return {
+        ...state,
+        isFetching: false,
+        WallId: action.id
       };
     default:
       return state;

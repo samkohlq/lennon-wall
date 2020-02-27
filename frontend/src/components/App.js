@@ -3,11 +3,10 @@ import AddPost from "../containers/AddPost";
 import PostsListContainer from "../containers/PostsListContainer";
 
 const App = ({ match: { params } }) => {
-  console.log({ params });
   return (
     <div>
-      <h1>Wall name</h1>
-      <AddPost />
+      <h1>{params.wallName}</h1>
+      <AddPost wallName={params.wallName} />
       <PostsListContainer wallName={params.wallName} />
     </div>
   );

@@ -3,23 +3,23 @@ import { Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 import { addPost } from "../actions/addPost";
 
-const AddPost = ({ dispatch }) => {
-  let newPost;
+const AddPost = ({ dispatch, wallName }) => {
+  let input;
   return (
     <div>
       <Form
         onSubmit={e => {
           e.preventDefault();
-          if (!newPost.value.trim()) {
+          if (!input.value.trim()) {
             return;
           }
-          dispatch(addPost(newPost.value));
-          newPost.value = "";
+          dispatch(addPost(input.value, wallName));
+          input.value = "";
         }}
       >
         <input
           ref={node => {
-            newPost = node;
+            input = node;
           }}
         />
         {/* calls onSubmit function in form component */}

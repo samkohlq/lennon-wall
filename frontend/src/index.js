@@ -11,6 +11,7 @@ const store = configureStore();
 render(
   <Provider store={store}>
     <Router>
+      {/* pass wallName param into App component */}
       <Route path="/walls/:wallName?" component={App} />
     </Router>
   </Provider>,

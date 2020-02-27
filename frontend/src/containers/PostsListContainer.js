@@ -3,6 +3,7 @@ import { addPost } from "../actions/addPost";
 import { retrievePosts } from "../actions/retrievePosts";
 import PostsList from "../components/PostsList";
 
+// reads posts from state
 const mapStateToProps = state => {
   return {
     posts: state.posts
@@ -16,12 +17,16 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     addPost: value => {
       // dispatch addPost action
-      dispatch(addPost(value));
+      dispatch(addPost(value, ownProps.wallName));
     },
     retrievePosts: () => {
       // dispatch retrievePosts action
       dispatch(retrievePosts(ownProps.wallName));
     }
+    // retrieveWallId: () => {
+    //   // dispatch retrieveWallId action
+    //   dispatch(retrieveWallId(ownProps.wallName));
+    // }
   };
 };
 

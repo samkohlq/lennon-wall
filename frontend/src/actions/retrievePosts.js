@@ -8,21 +8,6 @@ export const receivePosts = posts => ({
   posts
 });
 
-// export const retrievePosts = wallName => {
-//   return dispatch => {
-//     dispatch(requestPosts(wallName));
-//     // if there's a wall of this wallName, retrieve all posts from that wall
-//     return fetch("http://localhost:4000/posts/retrieve")
-//       .then(response => {
-//         response.json();
-//       })
-//       .then(json => {
-//         dispatch(receivePosts(json));
-//       });
-//     // otherwise create a new wall
-//   };
-// };
-
 export const retrievePosts = wallName => {
   return dispatch => {
     dispatch(requestPosts(wallName));
