@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 import { addPost } from "../actions/addPost";
 
-const AddPost = ({ dispatch, wallName }) => {
+const AddPost = ({ dispatch, signedInUsername, wallName }) => {
   let input;
   return (
     <div className="my-5">
@@ -13,7 +13,7 @@ const AddPost = ({ dispatch, wallName }) => {
           if (!input.value.trim()) {
             return;
           }
-          dispatch(addPost(input.value, wallName));
+          dispatch(addPost(input.value, signedInUsername, wallName));
           input.value = "";
         }}
       >

@@ -19,6 +19,7 @@ function posts(state = initialState, action) {
           {
             id: action.postAdded.id,
             value: action.postAdded.value,
+            username: action.postAdded.username,
             WallId: action.postAdded.WallId
           }
         ]

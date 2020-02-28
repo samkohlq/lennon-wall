@@ -28,7 +28,8 @@ PostsList.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      value: PropTypes.string.isRequired
+      value: PropTypes.string.isRequired,
+      username: PropTypes.string.isRequired
     }).isRequired
   ).isRequired
 };

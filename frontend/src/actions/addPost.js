@@ -9,10 +9,9 @@ export const receiveAddPostSuccess = postAdded => ({
   postAdded
 });
 
-export const addPost = (value, wallName) => {
+export const addPost = (value, signedInUsername, wallName) => {
   return dispatch => {
-    console.log(wallName);
-    dispatch(requestAddPost(value, wallName));
+    dispatch(requestAddPost(value, signedInUsername, wallName));
     return (
       fetch("http://localhost:4000/posts/create", {
         method: "POST",
@@ -21,6 +20,7 @@ export const addPost = (value, wallName) => {
         },
         body: JSON.stringify({
           value,
+          signedInUsername,
           wallName
         })
       })
