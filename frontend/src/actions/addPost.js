@@ -14,7 +14,7 @@ export const addPost = (value, username, wallName) => {
   return dispatch => {
     dispatch(requestAddPost(value, username, wallName));
     return (
-      fetch("http://localhost:4000/posts/create", {
+      fetch("https://safe-taiga-31563.herokuapp.com/posts/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

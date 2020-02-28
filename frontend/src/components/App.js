@@ -30,10 +30,10 @@ class App extends React.Component {
     } = this.props;
     return (
       <Container>
-        <h1 className="mt-5">{params.wallName}</h1>
+        <h1 className="mt-5">{params.wallName || "defaultwall"}</h1>
         <div id="firebaseui-auth-container"></div>
-        <AddPost wallName={params.wallName} />
-        <PostsListContainer wallName={params.wallName} />
+        <AddPost wallName={params.wallName || "defaultwall"} />
+        <PostsListContainer wallName={params.wallName || "defaultwall"} />
       </Container>
     );
   }

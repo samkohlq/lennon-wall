@@ -12,7 +12,7 @@ export const retrievePosts = wallName => {
   return dispatch => {
     dispatch(requestPosts(wallName));
     return (
-      fetch("http://localhost:4000/posts/retrieve", {
+      fetch("https://safe-taiga-31563.herokuapp.com/posts/retrieve", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
