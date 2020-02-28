@@ -6,7 +6,7 @@ import { addPost } from "../actions/addPost";
 const AddPost = ({ dispatch, wallName }) => {
   let input;
   return (
-    <div>
+    <div className="my-5">
       <Form
         onSubmit={e => {
           e.preventDefault();
@@ -23,7 +23,9 @@ const AddPost = ({ dispatch, wallName }) => {
           }}
         />
         {/* calls onSubmit function in form component */}
-        <Button type="submit">Add Post</Button>
+        <Button className="m-1" type="submit" size="sm">
+          Add Post
+        </Button>
       </Form>
     </div>
   );

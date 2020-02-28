@@ -1,0 +1,33 @@
+.firebaseui-title {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: large;
+  font-weight: medium;
+}
+
+.firebaseui-textfield {
+  font-size: small;
+}
+
+.firebaseui-id-password {
+  color: red;
+}
+
+.firebaseui-input {
+  margin-left: 5px;
+}
+
+.firebaseui-form-links {
+  font-size: small;
+  margin-bottom: 10px;
+}
+
+.firebaseui-id-submit {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+}

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
+import { Container, ListGroup } from "react-bootstrap";
 import Post from "./Post";
 
 class PostsList extends React.Component {
@@ -11,11 +12,13 @@ class PostsList extends React.Component {
   render() {
     const { posts } = this.props;
     return (
-      <ul>
-        {posts.map(post => (
-          <Post key={post.id} {...post} />
-        ))}
-      </ul>
+      <Container>
+        <ListGroup variant="flush">
+          {posts.map(post => (
+            <Post key={post.id} {...post} />
+          ))}
+        </ListGroup>
+      </Container>
     );
   }
 }
