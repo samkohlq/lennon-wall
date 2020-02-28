@@ -1,6 +1,7 @@
-export const requestAddPost = (value, wallName) => ({
+export const requestAddPost = (value, username, wallName) => ({
   type: "REQUEST_ADD_POST",
   value,
+  username,
   wallName
 });
 
@@ -9,9 +10,9 @@ export const receiveAddPostSuccess = postAdded => ({
   postAdded
 });
 
-export const addPost = (value, signedInUsername, wallName) => {
+export const addPost = (value, username, wallName) => {
   return dispatch => {
-    dispatch(requestAddPost(value, signedInUsername, wallName));
+    dispatch(requestAddPost(value, username, wallName));
     return (
       fetch("http://localhost:4000/posts/create", {
         method: "POST",
@@ -20,7 +21,7 @@ export const addPost = (value, signedInUsername, wallName) => {
         },
         body: JSON.stringify({
           value,
-          signedInUsername,
+          username,
           wallName
         })
       })
@@ -30,8 +31,8 @@ export const addPost = (value, signedInUsername, wallName) => {
           return response.json();
         })
         // takes in value of new todo and dispatches receiveAddPostSuccess action
-        .then(json => {
-          return dispatch(receiveAddPostSuccess(json));
+        .then(postAdded => {
+          return dispatch(receiveAddPostSuccess(postAdded));
         })
     );
   };

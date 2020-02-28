@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 import { addPost } from "../actions/addPost";
 
-const AddPost = ({ dispatch, signedInUsername, wallName }) => {
+const AddPost = ({ dispatch, username, wallName }) => {
   let input;
   return (
     <div className="my-5">
@@ -13,7 +13,7 @@ const AddPost = ({ dispatch, signedInUsername, wallName }) => {
           if (!input.value.trim()) {
             return;
           }
-          dispatch(addPost(input.value, signedInUsername, wallName));
+          dispatch(addPost(input.value, username, wallName));
           input.value = "";
         }}
       >
@@ -31,4 +31,11 @@ const AddPost = ({ dispatch, signedInUsername, wallName }) => {
   );
 };
 
-export default connect()(AddPost);
+// reads posts from state
+const mapStateToProps = state => {
+  return {
+    username: state.username
+  };
+};
+
+export default connect(mapStateToProps)(AddPost);

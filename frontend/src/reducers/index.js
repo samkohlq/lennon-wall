@@ -1,6 +1,7 @@
 const initialState = {
   isFetching: false,
-  posts: []
+  posts: [],
+  username: null
 };
 
 function posts(state = initialState, action) {
@@ -23,6 +24,11 @@ function posts(state = initialState, action) {
             WallId: action.postAdded.WallId
           }
         ]
+      };
+    case "SAVE_USERNAME":
+      return {
+        ...state,
+        username: action.username
       };
     case "REQUEST_POSTS":
       return {

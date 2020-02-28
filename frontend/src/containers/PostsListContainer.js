@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { addPost } from "../actions/addPost";
 import { retrievePosts } from "../actions/retrievePosts";
+import { saveUsername } from "../actions/saveUsername";
 import PostsList from "../components/PostsList";
 
 // reads posts from state
@@ -18,6 +19,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     addPost: value => {
       // dispatch addPost action
       dispatch(addPost(value, ownProps.wallName));
+    },
+    saveUsername: state => {
+      dispatch(saveUsername(state.username));
     },
     retrievePosts: () => {
       // dispatch retrievePosts action
