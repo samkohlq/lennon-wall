@@ -27,10 +27,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       // dispatch retrievePosts action
       dispatch(retrievePosts(ownProps.wallName));
     }
-    // retrieveWallId: () => {
-    //   // dispatch retrieveWallId action
-    //   dispatch(retrieveWallId(ownProps.wallName));
-    // }
   };
 };
 
