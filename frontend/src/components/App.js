@@ -3,10 +3,9 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
 import { saveUsername } from "../actions/saveUsername";
-import AddPost from "../containers/AddPost";
-import PostsListContainer from "../containers/PostsListContainer";
 import firebase from "../firebase";
 import "./App.css";
+import Wall from "./Wall";
 
 const ui = new firebaseui.auth.AuthUI(firebase.auth());
 
@@ -28,12 +27,11 @@ class App extends React.Component {
     const {
       match: { params },
     } = this.props;
+    const wallName = params.wallName || "defaultwall";
     return (
       <Container>
-        <h1 className="mt-5">{params.wallName || "defaultwall"}</h1>
         <div id="firebaseui-auth-container"></div>
-        <PostsListContainer wallName={params.wallName || "defaultwall"} />
-        <AddPost wallName={params.wallName || "defaultwall"} />
+        <Wall wallName={wallName} />
       </Container>
     );
   }
