@@ -1,0 +1,14 @@
+.post-bubble {
+  background-color: #f3f3f3;
+  border-radius: 20px;
+  padding: 12px;
+  margin: 5px 0px 5px 0px;
+  width: max-content;
+  font-size: 10pt;
+}
+
+.post-bubble-user {
+  color: #385898;
+  font-weight: 500;
+  display: inline;
+}

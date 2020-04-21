@@ -14,26 +14,26 @@ class App extends React.Component {
   componentDidMount() {
     const uiConfig = {
       callbacks: {
-        signInSuccessWithAuthResult: authResult => {
+        signInSuccessWithAuthResult: (authResult) => {
           this.props.dispatch(saveUsername(authResult.user.displayName));
-        }
+        },
       },
       signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID],
-      credentialHelper: firebaseui.auth.CredentialHelper.NONE
+      credentialHelper: firebaseui.auth.CredentialHelper.NONE,
     };
     ui.start("#firebaseui-auth-container", uiConfig);
   }
 
   render() {
     const {
-      match: { params }
+      match: { params },
     } = this.props;
     return (
       <Container>
         <h1 className="mt-5">{params.wallName || "defaultwall"}</h1>
         <div id="firebaseui-auth-container"></div>
-        <AddPost wallName={params.wallName || "defaultwall"} />
         <PostsListContainer wallName={params.wallName || "defaultwall"} />
+        <AddPost wallName={params.wallName || "defaultwall"} />
       </Container>
     );
   }
