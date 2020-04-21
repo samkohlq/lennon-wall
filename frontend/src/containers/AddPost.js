@@ -1,40 +1,42 @@
 import React from "react";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { connect } from "react-redux";
 import { addPost } from "../actions/addPost";
+import "./AddPost.css";
 
-const AddPost = ({ dispatch, username, wallName }) => {
-  let input;
-  return (
-    <div className="my-5">
-      <Form
-        onSubmit={e => {
-          e.preventDefault();
-          if (!input.value.trim()) {
-            return;
-          }
-          dispatch(addPost(input.value, username, wallName));
-          input.value = "";
-        }}
-      >
+let input;
+
+class AddPost extends React.Component {
+  handleKeyPress = (target) => {
+    if (target.charCode === 13) {
+      target.preventDefault();
+      this.props.dispatch(
+        addPost(input.value, this.props.username, this.props.wallName)
+      );
+      input.value = "";
+    }
+  };
+
+  render() {
+    return (
+      <Form>
         <input
-          ref={node => {
+          className="add-post"
+          type="text"
+          onKeyPress={this.handleKeyPress}
+          ref={(node) => {
             input = node;
           }}
-        />
-        {/* calls onSubmit function in form component */}
-        <Button className="m-1" type="submit" size="sm">
-          Add Post
-        </Button>
+        ></input>
       </Form>
-    </div>
-  );
-};
+    );
+  }
+}
 
 // reads posts from state
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    username: state.username
+    username: state.username,
   };
 };
 
