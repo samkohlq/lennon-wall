@@ -28,6 +28,7 @@ class App extends React.Component {
       match: { params },
     } = this.props;
     const wallName = params.wallName || "defaultwall";
+
     return (
       <Container>
         <div id="firebaseui-auth-container"></div>

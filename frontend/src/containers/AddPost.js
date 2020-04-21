@@ -27,6 +27,7 @@ class AddPost extends React.Component {
           ref={(node) => {
             input = node;
           }}
+          placeholder="Type a message and press 'Enter'"
         ></input>
       </Form>
     );

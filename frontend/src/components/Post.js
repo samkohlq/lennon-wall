@@ -4,13 +4,13 @@ import "./Post.css";
 
 const Post = ({ value, username }) => (
   <div className="post-bubble">
-    <div className="post-bubble-user">{username}</div> {value}
+    <div className="post-bubble-user">{username || "Wandering stranger"}</div>{" "}
+    {value}
   </div>
 );
 
 Post.propTypes = {
   value: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired,
 };
 
 export default Post;

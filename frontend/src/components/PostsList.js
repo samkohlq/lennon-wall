@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { Container, ListGroup } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Post from "./Post";
 
 class PostsList extends React.Component {
@@ -13,11 +13,9 @@ class PostsList extends React.Component {
     const { posts } = this.props;
     return (
       <Container>
-        <ListGroup variant="flush">
-          {posts.map(post => (
-            <Post key={post.id} {...post} />
-          ))}
-        </ListGroup>
+        {posts.map((post) => (
+          <Post key={post.id} {...post} />
+        ))}
       </Container>
     );
   }
@@ -29,9 +27,8 @@ PostsList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       value: PropTypes.string.isRequired,
-      username: PropTypes.string.isRequired
     }).isRequired
-  ).isRequired
+  ).isRequired,
 };
 
 export default PostsList;
