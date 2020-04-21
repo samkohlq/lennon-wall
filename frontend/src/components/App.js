@@ -3,9 +3,9 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
 import { saveUsername } from "../actions/saveUsername";
+import Wall from "../components/Wall";
 import firebase from "../firebase";
 import "./App.css";
-import Wall from "./Wall";
 
 const ui = new firebaseui.auth.AuthUI(firebase.auth());
 
@@ -24,11 +24,11 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     const {
       match: { params },
     } = this.props;
     const wallName = params.wallName || "defaultwall";
-
     return (
       <Container>
         <div id="firebaseui-auth-container"></div>

@@ -1,7 +1,7 @@
 const initialState = {
   isFetching: false,
   posts: [],
-  username: null
+  username: null,
 };
 
 function posts(state = initialState, action) {
@@ -9,7 +9,7 @@ function posts(state = initialState, action) {
     case "REQUEST_ADD_POST":
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
       };
     case "RECEIVE_ADD_POST_SUCCESS":
       return {
@@ -21,36 +21,25 @@ function posts(state = initialState, action) {
             id: action.postAdded.id,
             value: action.postAdded.value,
             username: action.postAdded.username,
-            WallId: action.postAdded.WallId
-          }
-        ]
+            WallId: action.postAdded.WallId,
+          },
+        ],
       };
     case "SAVE_USERNAME":
       return {
         ...state,
-        username: action.username
+        username: action.username,
       };
     case "REQUEST_POSTS":
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
       };
     case "RECEIVE_POSTS":
       return {
         ...state,
         isFetching: false,
-        posts: action.posts
-      };
-    case "REQUEST_WALL_ID":
-      return {
-        ...state,
-        isFetching: true
-      };
-    case "RECEIVE_WALL_ID":
-      return {
-        ...state,
-        isFetching: false,
-        WallId: action.id
+        posts: action.posts,
       };
     default:
       return state;

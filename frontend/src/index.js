@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import App from "./components/App";
 import configureStore from "./configureStore";
-import "./fonts/Roboto-Regular.ttf";
 
 const store = configureStore();
 
